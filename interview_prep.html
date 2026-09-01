@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabin Ranabhat — Interview Prep (Explained Simply)</title>
+<style>
+  :root {
+    --bg: #f6f8fa; --card: #ffffff; --ink: #1f2937; --muted: #6b7280;
+    --accent: #0f62fe; --accent-soft: #e0ecff; --green: #0e9f6e; --green-soft: #def7ec;
+    --rust: #ce422b; --rust-soft: #fde8e4; --line: #e5e7eb; --code-bg: #f3f4f6;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
+  .layout { display: flex; max-width: 1320px; margin: 0 auto; }
+  nav { width: 250px; flex-shrink: 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; padding: 20px 12px; border-right: 1px solid var(--line); background: var(--card); }
+  nav h2 { font-size: 15px; margin: 0 0 4px; }
+  nav a { display: block; padding: 7px 10px; border-radius: 8px; color: var(--ink); text-decoration: none; font-size: 13.5px; margin-bottom: 2px; }
+  nav a:hover { background: var(--accent-soft); }
+  nav a.active { background: var(--accent); color: #fff; }
+  nav .sub { font-size: 11px; color: var(--muted); padding: 0 10px 8px; }
+  main { flex: 1; padding: 28px 36px 80px; min-width: 0; }
+  header.hero { background: linear-gradient(135deg, #0f172a, #1e3a8a); color: #fff; border-radius: 14px; padding: 26px 30px; margin-bottom: 20px; }
+  header.hero h1 { margin: 0 0 6px; font-size: 25px; }
+  header.hero p { margin: 4px 0; color: #cbd5e1; font-size: 14px; }
+  .pill { display: inline-block; background: rgba(255,255,255,.14); padding: 3px 10px; border-radius: 999px; font-size: 12px; margin: 8px 6px 0 0; }
+  .searchbar { position: sticky; top: 0; z-index: 5; background: var(--bg); padding: 10px 0; }
+  .searchbar input { width: 100%; padding: 11px 16px; font-size: 15px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--card); }
+  .searchbar input:focus { outline: 2px solid var(--accent); }
+  section { margin-bottom: 38px; scroll-margin-top: 60px; }
+  h2.sec { font-size: 21px; border-bottom: 3px solid var(--accent); display: inline-block; padding-bottom: 4px; margin-bottom: 4px; }
+  .sec-desc { color: var(--muted); font-size: 13.5px; margin-bottom: 18px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; margin-bottom: 16px; }
+  .card h3 { margin: 0 0 4px; font-size: 17px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .badge { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); white-space: nowrap; }
+  .badge.rust { background: var(--rust-soft); color: var(--rust); }
+  .badge.py { background: #e8f7ee; color: #087f5b; }
+  .badge.js { background: #fff4d6; color: #b45309; }
+  .badge.chain { background: #ede9fe; color: #6d28d9; }
+  .badge.web { background: #e0f2fe; color: #0369a1; }
+  .card a.repo { font-size: 12px; color: var(--accent); text-decoration: none; }
+  .card a.repo:hover { text-decoration: underline; }
+  .whatis { background: var(--green-soft); border-left: 4px solid var(--green); padding: 8px 12px; border-radius: 6px; font-size: 13.5px; margin: 8px 0; }
+  .flow { background: var(--code-bg); border-radius: 8px; padding: 12px 16px; margin: 10px 0; font-size: 13.5px; }
+  .flow b.step { color: var(--accent); }
+  .flow .why { color: var(--muted); }
+  ul.intricacies li, .qa li { margin: 6px 0; }
+  .tag-h { font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; color: var(--muted); margin: 14px 0 4px; }
+  details { border: 1px solid var(--line); border-radius: 9px; margin: 7px 0; background: var(--card); overflow: hidden; }
+  details summary { cursor: pointer; padding: 10px 14px; font-weight: 600; font-size: 13.5px; list-style: none; display: flex; gap: 8px; align-items: baseline; }
+  details summary::before { content: "▸"; color: var(--accent); transition: transform .15s; flex-shrink: 0; }
+  details[open] summary::before { transform: rotate(90deg); }
+  details .a { padding: 0 14px 12px 30px; font-size: 13.5px; color: #374151; }
+  details .a code { background: var(--code-bg); padding: 1px 5px; border-radius: 4px; font-size: 12.5px; }
+  .plain { background: #eff6ff; border-left: 4px solid var(--accent); padding: 8px 12px; border-radius: 6px; margin: 8px 0; }
+  .say { background: var(--green-soft); border-left: 4px solid var(--green); padding: 8px 12px; border-radius: 6px; margin: 8px 0; }
+  .say::before { content: "🎯 Say it like this: "; font-weight: 700; color: #065f46; }
+  .plain::before { content: "🧠 In plain words: "; font-weight: 700; color: #1e40af; }
+  .review { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); margin-left: auto; cursor: pointer; user-select: none; white-space: nowrap; }
+  .review input { accent-color: var(--green); width: 15px; height: 15px; cursor: pointer; }
+  .hidden { display: none !important; }
+  .tip { background: var(--green-soft); border-left: 4px solid var(--green); padding: 10px 14px; border-radius: 6px; font-size: 13px; margin: 10px 0; }
+  .warn { background: var(--rust-soft); border-left: 4px solid var(--rust); padding: 10px 14px; border-radius: 6px; font-size: 13px; margin: 10px 0; }
+  @media (max-width: 900px) { nav { display: none; } main { padding: 16px; } }
+</style>
+</head>
+<body>
+<div class="layout">
+<nav id="nav">
+  <h2>📚 Interview Prep</h2>
+  <div class="sub">Simple language · deep detail</div>
+  <a href="#projects">Projects (10)</a>
+  <a href="#research">Research & Papers</a>
+  <a href="#rust">Rust</a>
+  <a href="#js">JavaScript</a>
+  <a href="#python">Python</a>
+  <a href="#db">Databases & SQL</a>
+  <a href="#react">React</a>
+  <a href="#backend">Backend</a>
+  <a href="#frontend">Frontend / Web</a>
+  <a href="#rapid">Rapid Fire</a>
+</nav>
+<main>
+  <header class="hero">
+    <h1>Sabin Ranabhat — Interview Prep</h1>
+    <p>Everything explained in plain language first, with analogies, then the crisp version to say out loud. Click any question to open it. Use the search box to jump to anything.</p>
+    <span class="pill">Full Stack</span><span class="pill">Blockchain</span><span class="pill">Systems</span><span class="pill">Rust · Python · JS · Go</span>
+  </header>
+
+  <div class="searchbar"><input type="text" id="search" placeholder="🔍 Search — try 'ownership', 'JWT', 'event loop', 'index', 'websocket'..."></div>
+
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects">
+    <h2 class="sec">Projects — explained step by step</h2>
+    <p class="sec-desc">Each project: what it is in one sentence → how data actually flows (with the <i>why</i>) → the details worth mentioning → questions with simple answers.</p>
+
+    <div class="card" data-search="plantgo solana nft spl mint rarity pda blockchain rust game">
+      <h3>🌱 PlantGO <span class="badge rust">Rust</span><span class="badge chain">Solana</span><span class="badge chain">SPL</span> <label class="review"><input type="checkbox" data-rv="plantgo"> reviewed</label></h3>
+      <a class="repo" href="https://github.com/Plant-GO/biodex">github.com/Plant-GO/biodex</a>
+      <div class="whatis"><b>What it is, plainly:</b> a Pokémon-style plant card game where the cards are NFTs living on the Solana blockchain — so nobody (not even me, the developer) can cheat the rarity system, because the rules run on-chain, not on some server I control.</div>
+      <div class="tag-h">The flow — what happens, step by step</div>
+      <div class="flow">
+        <b class="step">1.</b> <b>Admin loads the game rules on-chain:</b> plant configs (which plants exist) and rarity limits (e.g. "only 100 legendaries, ever") are written into accounts on the blockchain. <span class="why">Why on-chain? So the rules are public and unchangeable.</span><br>
+        <b class="step">2.</b> <b>A player mints:</b> the mobile app sends a transaction that calls my program (smart contract) saying "give me a card."<br>
+        <b class="step">3.</b> <b>The program checks the rules itself:</b> is this rarity still available? Is this the player's first card (first cards are restricted so people can't farm rare ones)? Counters track how many of each rarity exist.<br>
+        <b class="step">4.</b> <b>Automatic downgrade:</b> if the rarity the player rolled is sold out, the program quietly gives the next-lower rarity instead of failing. <span class="why">Why? Game economy stays stable without trusting anyone.</span><br>
+        <b class="step">5.</b> <b>The NFT is minted</b> into the player's <b>Associated Token Account</b> — think of it as the player's personal locker for that specific collectible — and the counters update.<br>
+        <b class="step">6.</b> The app reads the token and shows the card. The image itself isn't on-chain (too expensive) — only ownership and rules are.
+      </div>
+      <div class="tag-h">Details worth mentioning (each in plain words)</div>
+      <ul class="intricacies">
+        <li><b>Why enforce rules on-chain?</b> In a normal game, the server decides what card you get — and the company could change odds secretly. On-chain, the rules are code everyone can read, and no one can bend them. That's what "trustless" means: you don't need to trust me, the math guarantees fairness.</li>
+        <li><b>PDA (Program Derived Address):</b> a special account address calculated from a formula (seeds), not from a private key. Only my program can sign for it. It's like a company mailbox — no individual holds the key, the "company" (program) itself signs. I use PDAs to hold the global counters and to be the mint authority.</li>
+        <li><b>ATA (Associated Token Account):</b> for every (wallet, token) pair there's one standard, predictable account — like each person having exactly one assigned locker per collectible type. The program creates it if it doesn't exist yet.</li>
+        <li><b>CPI (Cross-Program Invocation):</b> my program calls the official SPL Token program to actually create the token — like my office using the government's official stamping process instead of forging stamps myself.</li>
+        <li><b>Access control:</b> only the designated admin account can call the "load configs" instruction — checked on-chain, so randos can't rewrite the game rules.</li>
+      </ul>
+      <details data-search="why solana ethereum fees proof of history"><summary>Q: Why Solana instead of Ethereum? <label class="review"><input type="checkbox" data-rv="q"></label></summary><div class="a">
+        <div class="plain">Ethereum transactions can cost dollars and take a while; a card game needs thousands of tiny, instant mints. Solana mints cost fractions of a cent and confirm in about a second. Also, Solana programs are written in Rust — my strongest language — and Solana processes many transactions in parallel (that's the "Proof of History" ordering trick plus Proof of Stake), while Ethereum's EVM does them one-by-one.</div>
+        <div class="say">"Card games need many cheap, fast mints — Solana gives sub-cent fees, ~400ms finality, parallel execution, and it's all Rust, which is my main language."</div>
+      </div></details>
+      <details data-search="rent rent-exempt account storage solana"><summary>Q: What is "rent" on Solana?</summary><div class="a">
+        <div class="plain">Storing data on hundreds of validators' machines isn't free, so accounts must hold a small amount of SOL as a deposit, proportional to how much data they store. If an account keeps 2 years' worth deposited, it's "rent-exempt" and never gets deleted. This is why on-chain programs store only tiny things (counters, configs) and put images elsewhere.</div>
+        <div class="say">"Rent is a storage deposit that keeps data on validators; rent-exemption is the minimum balance — that's why my program stores only counters and points to off-chain metadata."</div>
+      </div></details>
+      <details data-search="how program mints nft cpi authority"><summary>Q: How can your program mint an NFT it doesn't "own"?</summary><div class="a">
+        <div class="plain">At setup, the token's "mint authority" (the only address allowed to create new tokens) is set to my program's PDA. When minting, my program calls the SPL Token program (a CPI) and the PDA signs — no private key involved anywhere. Only the program can ever mint, by construction.</div>
+      </div></details>
+    </div>
+
+    <div class="card" data-search="dai decentralized ai p2p blockchain tokio consensus nodes network rust compute">
+      <h3>🤖 Decentralized AI (DAI) <span class="badge rust">Rust</span><span class="badge chain">P2P</span><span class="badge chain">Blockchain</span><span class="badge rust">Tokio</span> <label class="review"><input type="checkbox" data-rv="dai"> reviewed</label></h3>
+      <a class="repo" href="https://github.com/sabinonweb/dai">github.com/sabinonweb/dai</a>
+      <div class="whatis"><b>What it is, plainly:</b> instead of one big company's server running AI for everyone, DAI is a network of equal computers (peers) that share AI work between them — and they keep a shared, tamper-proof notebook (a blockchain) of who submitted which task and what result came back, so nobody can lie about it.</div>
+      <div class="tag-h">The flow</div>
+      <div class="flow">
+        <b class="step">1.</b> <b>Nodes find each other:</b> when a node joins, it gets a list of peers and regularly pings them. <span class="why">Why ping? To know who's alive — machines come and go.</span><br>
+        <b class="step">2.</b> <b>Someone submits an AI task:</b> the request is broadcast — passed from node to node until everyone has it (like a message spreading through a group chat).<br>
+        <b class="step">3.</b> <b>Nodes compute:</b> each participating node runs the task locally on its own hardware.<br>
+        <b class="step">4.</b> <b>Results are recorded:</b> submissions and results become transactions, bundled into blocks.<br>
+        <b class="step">5.</b> <b>Verification before acceptance:</b> other nodes check a block's contents before adding it to their copy of the chain — that's the "consensus verification." Everyone's chain stays identical.<br>
+        <b class="step">6.</b> All this runs on <b>Tokio</b>: each connection is a lightweight task; the node handles blocks, transactions, peer lists, and pings at the same time without threads blocking each other.
+      </div>
+      <div class="tag-h">Details worth mentioning</div>
+      <ul class="intricacies">
+        <li><b>Why P2P?</b> No single point of failure, no one can censor or meter the compute, and capacity grows with every peer. The honest trade-off: much harder to build and debug than a server.</li>
+        <li><b>Why a blockchain here at all?</b> Not for currency — for <i>integrity</i>. It's a notebook everyone copies and verifies, so a task's history can't be quietly rewritten. "Tamper-evident" is the right phrase.</li>
+        <li><b>Four message types</b> (blocks, transactions, peers, pings) — each with its own handler; that's a clean protocol design point.</li>
+        <li><b>Connection pooling:</b> reusing established connections instead of opening fresh ones per message — handshakes are expensive, like saving someone's number instead of re-introducing yourself every time.</li>
+      </ul>
+      <details data-search="p2p vs client server interview answer"><summary>Q: Why not just use a normal server?</summary><div class="a">
+        <div class="plain">A server is simpler — but then one company owns the compute, can shut it down, change prices, or see everyone's tasks. P2P removes that middleman: no single owner, no single point of failure, capacity grows with users. The cost is complexity: node churn (machines leaving), debugging distributed systems, and needing consensus so peers can't lie.</div>
+        <div class="say">"A server reintroduces exactly the trust problem DAI explores — one party in control. P2P trades simplicity for resilience and neutrality; the blockchain layer is what keeps untrusted peers honest."</div>
+      </div></details>
+      <details data-search="async tokio await future explained simply"><summary>Q: Explain async/Tokio simply (they will ask — it's all over your resume)</summary><div class="a">
+        <div class="plain">Think of a chef: a bad chef puts a pot on the stove and stares at it until it boils. A good chef starts chopping vegetables while the pot heats — that's async. In code, an <code>async fn</code> is a task that can "pause" at an <code>.await</code> point (while waiting for network) and let other tasks run. Tokio is the kitchen manager: a few OS threads running thousands of these pausable tasks, waking each one when its data arrives. Compare: one OS thread per connection would need megabytes of memory each; a Tokio task is a few kilobytes.</div>
+        <div class="say">"async fn compiles to a state machine; .await is where it yields. Tokio schedules thousands of cheap tasks on a small worker pool — that's how DAI holds many peer connections on modest hardware."</div>
+      </div></details>
+      <details data-search="malicious node wrong result consensus"><summary>Q: What if a node submits a wrong result on purpose?</summary><div class="a">
+        <div class="plain">Before accepting a block, other nodes re-check what's inside — like homework being graded by the whole class, not one teacher. A block with a bad result doesn't get accepted, so it never becomes part of the shared history. For production I'd add reputation or staking (nodes put something at risk, so cheating costs money).</div>
+      </div></details>
+    </div>
+
+    <div class="card" data-search="studdybuddy study matching chat socketioxide axum jwt mongodb react figma realtime websocket">
+      <h3>💬 StuddyBuddy <span class="badge rust">Rust · Axum</span><span class="badge js">React</span><span class="badge web">Socketioxide</span><span class="badge py">MongoDB</span> <label class="review"><input type="checkbox" data-rv="sb"> reviewed</label></h3>
+      <a class="repo" href="https://github.com/sabinonweb/StudyBuddy">github.com/sabinonweb/StudyBuddy</a>
+      <div class="whatis"><b>What it is, plainly:</b> a website where students pick a subject code (like "CS201") and get anonymously matched with other students studying the same thing right now, with a built-in chat. You don't know who you're talking to — just that they're working on the same topic.</div>
+      <div class="tag-h">The flow</div>
+      <div class="flow">
+        <b class="step">1.</b> <b>Sign up → email verification:</b> you get a link in your email; clicking it activates the account. <span class="why">Why? Proves you own the email, blocks fake accounts.</span><br>
+        <b class="step">2.</b> <b>Login → JWT:</b> the server hands back a signed token (see Backend section for the wristband analogy). The browser attaches it to every request.<br>
+        <b class="step">3.</b> <b>Middleware checks it:</b> Axum middleware verifies the signature on protected routes and attaches "who is asking" — handlers never repeat auth code.<br>
+        <b class="step">4.</b> <b>Match by subject code:</b> you join "CS201"; the server groups you with others in the same code.<br>
+        <b class="step">5.</b> <b>Chat over Socketioxide</b> (a Rust implementation of Socket.IO): joining a subject = joining a "room"; a message is broadcast only to that room.<br>
+        <b class="step">6.</b> <b>Posts feed:</b> a separate REST endpoint ranks posts by performance metrics + subject code; data lives in MongoDB. I designed the UI in Figma first, then built the React frontend against the API.
+      </div>
+      <div class="tag-h">Details worth mentioning</div>
+      <ul class="intricacies">
+        <li><b>Two kinds of communication, on purpose:</b> REST (request → response, like mailing letters) for profiles and posts; WebSockets (a phone call that stays open) for chat. Choosing both deliberately is the senior-sounding point.</li>
+        <li><b>Rooms:</b> the server fans a message out to just one room, not everyone — cheap targeting.</li>
+        <li><b>JWT + email verification</b> — full auth flow, not just a login stub.</li>
+      </ul>
+      <details data-search="jwt vs session cookies interview"><summary>Q: JWT vs sessions — which and why?</summary><div class="a">
+        <div class="plain"><b>Sessions</b> are like a coat check: the counter (server) remembers who you are, you just carry a little ticket number (cookie). Easy to invalidate (tear up the ticket) but the server must look up the ticket every request. <b>JWT</b> is a concert wristband: stamped (signed) at entry, every bar just checks the stamp — no central lookup. Super fast and works across many services, but a stolen wristband works until it expires, so you keep lifetimes short and add refresh tokens.</div>
+        <div class="say">"I chose JWT for StuddyBuddy because the web app and potential mobile app share one API and I didn't want session state; I mitigated the revocation weakness with short expiry + refresh."</div>
+      </div></details>
+      <details data-search="scale websockets multiple servers redis sticky"><summary>Q: How would you scale the chat to many servers?</summary><div class="a">
+        <div class="plain">Two problems appear. First, the WebSocket connection lives on ONE server — so the load balancer must send that user's future requests to the same machine ("sticky sessions"). Second, user A on server 1 and user B on server 2 are in the same room but different processes — so servers pass messages through a shared message bus, usually Redis pub/sub: server 1 publishes "room CS201: hi", server 2 hears it and delivers to its local members.</div>
+      </div></details>
+      <details data-search="mongodb vs postgres choice"><summary>Q: Why MongoDB and not Postgres?</summary><div class="a">
+        <div class="plain">The data was document-shaped (a profile is one blob of fields, a post has varying shapes) and evolving weekly during development — MongoDB's flexible schema meant no migrations while iterating. If the app had needed strict relations, multi-document transactions, or heavy joins (e.g., analytics across users × posts × rooms), a relational database would be the better tool. Naming the trade-off is the point.</div>
+      </div></details>
+    </div>
+
+    <div class="card" data-search="medivault medicine nodemcu actix iot esp8266 email reminders hackathon react health">
+      <h3>💊 MediVault <span class="badge rust">Actix</span><span class="badge js">React</span><span class="badge chain">nodeMCU</span> <label class="review"><input type="checkbox" data-rv="mv"> reviewed</label></h3>
+      <a class="repo" href="https://devfolio.co/projects/medivault-82c1">devfolio.co/projects/medivault-82c1</a>
+      <div class="whatis"><b>What it is, plainly:</b> a medicine manager built at DeerHack — it reminds you when to take medicine, tracks how much is left, and emails you before supplies run out. Unusually, it also talks to real hardware (a nodeMCU board) that tracks the physical medicine box.</div>
+      <div class="tag-h">The flow</div>
+      <div class="flow">
+        <b class="step">1.</b> <b>The device watches the physical world:</b> a nodeMCU (a tiny WiFi microcontroller) tracks dispensing/inventory.<br>
+        <b class="step">2.</b> <b>Device → server:</b> it sends readings over HTTP to my Actix backend, authenticated with a device key. <span class="why">Why a key, not full login? A $3 chip can't do browser-style OAuth — auth must fit the hardware.</span><br>
+        <b class="step">3.</b> <b>Server logic:</b> stores schedules and inventory; background jobs decide when to send reminders.<br>
+        <b class="step">4.</b> <b>Emails go out</b> for dosage times and low supply — sending mail is separated from the API so a slow mail server never slows a user request.<br>
+        <b class="step">5.</b> <b>React dashboard</b> shows schedules, history, and refill status.
+      </div>
+      <div class="tag-h">Details worth mentioning</div>
+      <ul class="intricacies">
+        <li><b>IoT realities:</b> tiny memory, WiFi drops and reconnects, no browser, no keyboard — design around the device's limits. That's a different mindset than web dev.</li>
+        <li><b>Why Actix:</b> a Rust web framework famous for top benchmark performance, built on the actor model — solid for the backend of an IoT system.</li>
+        <li><b>Background jobs ≠ request handlers:</b> reminders are scheduled work that runs on a timer; keeping it separate keeps the API fast.</li>
+      </ul>
+      <details data-search="device authentication api key hardware"><summary>Q: How does the server trust the device?</summary><div class="a">
+        <div class="plain">Each device gets a secret key at setup and sends it (over HTTPS) with every reading. It's like a house key — whoever holds it gets in. Better versions: have the device mathematically "sign" each message with the key (HMAC) so a recorded old message can't be replayed by an attacker, and rotate keys. For a product: per-device certificates.</div>
+      </div></details>
+    </div>
+
+    <div class="card" data-search="yuck premium spotify downloader cli oauth tokio yt-dlp lofty rust metadata music">
+      <h3>🎵 Yuck Premium <span class="badge rust">Rust</span><span class="badge rust">Tokio</span><span class="badge chain">Spotify API</span> <label class="review"><input type="checkbox" data-rv="yp"> reviewed</label></h3>
+      <a class="repo" href="https://github.com/sabinonweb/yuck_premium">github.com/sabinonweb/yuck_premium</a>
+      <div class="whatis"><b>What it is, plainly:</b> a command-line tool that downloads Spotify songs, playlists, and albums — fetching the track info from Spotify's official API, downloading the audio, and writing correct metadata (title, artist, album art) into each file so your music library looks clean.</div>
+      <div class="tag-h">The flow</div>
+      <div class="flow">
+        <b class="step">1.</b> <b>Log in with OAuth:</b> the tool opens your browser, you approve, it receives a token. <span class="why">Why OAuth? You never type your Spotify password into my tool — Spotify itself handles the login and just hands back a limited-access token.</span><br>
+        <b class="step">2.</b> <b>Read the list:</b> it asks Spotify's API for the playlist/album's tracks.<br>
+        <b class="step">3.</b> <b>Download</b> each track (via yt-dlp) — several at a time, but a <i>bounded</i> number.<br>
+        <b class="step">4.</b> <b>Tag:</b> lofty writes the metadata into the file. Result: a tidy offline library.
+      </div>
+      <div class="tag-h">Details worth mentioning</div>
+      <ul class="intricacies">
+        <li><b>Bounded concurrency — the star detail:</b> with async it's tempting to download all 100 tracks at once; that floods the network and gets you rate-limited. A semaphore says "at most N at a time" — like a restaurant with 10 tables: seat new guests only as tables free up.</li>
+        <li><b>Failure isolation:</b> one broken track doesn't kill the playlist — failures are collected and summarized at the end, with retries for flaky errors.</li>
+        <li><b>Clean separation:</b> metadata (Spotify API) / download (yt-dlp) / tagging (lofty) are separate stages — any can be swapped.</li>
+      </ul>
+      <details data-search="why rust cli single binary"><summary>Q: Why build a CLI in Rust?</summary><div class="a">
+        <div class="plain">You get one fast, self-contained file — users install nothing (no Python runtime, no Node). Rust's async handles many parallel downloads smoothly, and the strict type system forces you to handle every way an API call or subprocess can fail — exactly what you want in a tool that runs for an hour unattended.</div>
+      </div></details>
+    </div>
+
+    <div class="card" data-search="pngme steganography png lsb chunks crc rust secret encoder decode">
+      <h3>🧩 Pngme <span class="badge rust">Rust</span><span class="badge chain">Steganography</span> <label class="review"><input type="checkbox" data-rv="pm"> reviewed</label></h3>
+      <a class="repo" href="https://github.com/sabinonweb/pngme">github.com/sabinonweb/pngme</a>
+      <div class="whatis"><b>What it is, plainly:</b> a CLI that hides secret messages inside PNG images so the picture looks completely normal, and can decode, print, or delete the hidden message later. This is called steganography — hiding the existence of a message, unlike encryption which visibly scrambles it.</div>
+      <div class="warn">⚠ <b>Align your story first:</b> your resume describes <b>LSB</b> steganography (hiding bits inside pixel data). The Rust exercise this repo follows hides data in <b>PNG chunks</b> (a custom labeled section of the file). Know both explanations below — they're each 30 seconds — and you're covered either way.</div>
+      <div class="tag-h">How a PNG file is built (this is the fun part)</div>
+      <div class="flow">
+        A PNG = an 8-byte <b>signature</b> ("I'm a PNG!") followed by <b>chunks</b>, each shaped like:<br>
+        <b class="step">•</b> <b>length</b> (4 bytes: how big is the data) → <b>type</b> (4 letters, e.g. IHDR for header, IDAT for image data) → <b>data</b> → <b>CRC</b> (a checksum: a number computed from the data — if anything changed, the number no longer matches, so corruption is caught immediately).<br>
+        <b class="step">•</b> A decoder walks chunk by chunk — that's exactly how my encoder hides and finds the secret: it appends (or removes) its own labeled chunk that viewers simply ignore.
+      </div>
+      <div class="tag-h">Details worth mentioning</div>
+      <ul class="intricacies">
+        <li><b>LSB (Least Significant Bit), explained:</b> a pixel's color channel is a number 0–255. Change the last binary digit and the value shifts by at most 1 out of 255 — invisible to any human eye. Spread your secret's bits across many pixels' last digits and the picture looks untouched. (The resume's framing.)</li>
+        <li><b>CRC32:</b> error detection, not security — it catches accidents (bit flips), not attackers.</li>
+        <li><b>Chunk naming is meaningful:</b> capital vs lowercase letters in the type are flags — "ancillary" chunks can be safely ignored/removed by tools, which is what lets a custom chunk travel through normal image software.</li>
+      </ul>
+      <details data-search="steganography vs encryption difference"><summary>Q: Steganography vs encryption — what's the difference?</summary><div class="a">
+        <div class="plain">Encryption scrambles a message so it's unreadable — but anyone can SEE you're hiding something (random-looking blob). Steganography hides the fact that a message exists at all — the photo just looks like a photo. Strongest practice: encrypt the message, <i>then</i> hide it (so a finder still can't read it).</div>
+      </div></details>
+    </div>
+
+    <div class="card" data-search="sabinnylol url shortener bunnylol actix-web serde redirect plugin command latency">
+      <h3>⚡ sabinnylol <span class="badge rust">Rust · Actix-web</span><span class="badge rust">Serde</span> <label class="review"><input type="checkbox" data-rv="sn"> reviewed</label></h3>
+      <a class="repo" href="https://github.com/sabinonweb/sabinnylol">github.com/sabinonweb/sabinnylol</a>
+      <div class="whatis"><b>What it is, plainly:</b> you type a shortcut in your browser's address bar — like <code>go/gh rust-lang/rust</code> — and it instantly bounces you to that GitHub repo. One memorable word takes you anywhere, from any device. It's my Rust version of "Bunnylol," the shortcut tool made famous inside Facebook.</div>
+      <div class="tag-h">The flow</div>
+      <div class="flow">
+        <b class="step">1.</b> You type <code>go/gh &lt;something&gt;</code> → <b class="step">2.</b> the Actix-web server parses the command + arguments → <b class="step">3.</b> a <b>registry</b> looks up which "generator" handles <code>gh</code>; that generator builds the final URL (github.com/&lt;something&gt;) → <b class="step">4.</b> the server answers <b>302</b> ("go there instead") and your browser follows it. Total work: parse a string, consult an in-memory table, redirect — microseconds.
+      </div>
+      <div class="tag-h">Details worth mentioning</div>
+      <ul class="intricacies">
+        <li><b>Plugin architecture via traits:</b> every command is a small module implementing a common "generator" trait (a job description: given args → produce URL). Adding a command = write a module, register it. Nothing else changes. (Serde loads each generator's config from data.)</li>
+        <li><b>Why 302, not 301:</b> 301 means "moved permanently" — browsers <i>remember</i> it and stop asking your server. 302 = "for now," so you keep control to change destinations later.</li>
+        <li><b>Speed IS the feature:</b> no database, no page rendering — just parsing and lookup in memory.</li>
+      </ul>
+      <details data-search="why not browser bookmarks shortcut"><summary>Q: Why not just use bookmarks?</summary><div class="a">
+        <div class="plain">Bookmarks are stuck to one browser and can't take <i>arguments</i>. Commands do: <code>gh rust-lang/rust</code> is a different destination than <code>gh someone/repo</code> from the same 2-letter shortcut. And since it's a server, an organization can manage every shortcut centrally and it works on any machine you sit at.</div>
+      </div></details>
+    </div>
+
+    <div class="card" data-search="seas snake recognition machine learning classification image python frontend server species safety">
+      <h3>🐍 SEAS <span class="badge py">Python · ML</span><span class="badge web">Full-stack</span> <label class="review"><input type="checkbox" data-rv="seas"> reviewed</label></h3>
+      <a class="repo" href="https://github.com/sabinonweb/SEAS">github.com/sabinonweb/SEAS</a>
+      <div class="whatis"><b>What it is, plainly:</b> you upload a photo of a snake; a machine-learning model guesses the species and tells you how confident it is. Three parts: a web frontend, a server, and the ML brain (a separate module the server calls).</div>
+      <div class="tag-h">The flow</div>
+      <div class="flow">
+        <b class="step">1.</b> Upload photo in the web app → <b class="step">2.</b> server checks it (is it really an image? not huge?) → <b class="step">3.</b> the recognition module resizes/normalizes the photo exactly like training data was prepared <span class="why">(if preprocessing differs even slightly, predictions go wrong — a classic ML-serving bug)</span> → <b class="step">4.</b> the model outputs species probabilities → <b class="step">5.</b> the top species + confidence come back to the UI.
+      </div>
+      <div class="tag-h">Details worth mentioning</div>
+      <ul class="intricacies">
+        <li><b>The model is isolated</b> from frontend and server — it can be retrained or replaced (e.g. exported to ONNX) without touching the app.</li>
+        <li><b>Confidence matters ethically here:</b> a wrong snake ID is a safety problem — so show uncertainty and say "can't identify" below a threshold instead of guessing. Product judgment like this scores in interviews.</li>
+        <li><b>Serving ML ≠ training ML:</b> the engineering challenge is everything around the model — validation, consistent preprocessing, graceful failure.</li>
+      </ul>
+      <details data-search="improve model reliability out of distribution calibration"><summary>Q: How would you make it more reliable?</summary><div class="a">
+        <div class="plain">Reject low-confidence answers ("unknown" instead of a guess), train with varied angles/lighting/regions (snakes differ geographically), keep classes balanced, and let users flag wrong IDs so hard cases become new training data. That last loop — human feedback — is how real products get better.</div>
+      </div></details>
+    </div>
+
+    <div class="card" data-search="operations research visualizer manim fastapi scipy linear programming vogel transportation tsp animation video">
+      <h3>📊 Operations Research Visualizer <span class="badge py">Python · FastAPI</span><span class="badge py">Manim · SciPy</span> <label class="review"><input type="checkbox" data-rv="orv"> reviewed</label></h3>
+      <a class="repo" href="https://github.com/sabinonweb/graphics-mini">github.com/sabinonweb/graphics-mini</a>
+      <div class="whatis"><b>What it is, plainly:</b> you type in an optimization problem (the kind taught in Operations Research — e.g. "minimize cost given these constraints"), and it produces a smooth animated video showing how the algorithm actually solves it, step by step. Math homework as YouTube.</div>
+      <div class="tag-h">The flow</div>
+      <div class="flow">
+        <b class="step">1.</b> Submit problem data to the FastAPI backend → <b class="step">2.</b> <b>Pydantic</b> checks the shape of the input and rejects garbage with a clear error (422) → <b class="step">3.</b> <b>SciPy/NumPy</b> solve it: linear programming (linprog), Vogel's Approximation for transportation, a heuristic for TSP → <b class="step">4.</b> a <b>Manim</b> scene script (the animation library 3Blue1Brown uses) turns the steps into an animation → <b class="step">5.</b> FFmpeg renders it into a 1080p/60fps MP4 (LaTeX draws the math labels) → <b class="step">6.</b> delivered back to the user.
+      </div>
+      <div class="tag-h">Details worth mentioning</div>
+      <ul class="intricacies">
+        <li><b>Rendering is heavy</b> (minutes per video) — that must run as a background job with a queue, never inside the request. Knowing "slow work leaves the request path" is the interview point.</li>
+        <li><b>Why FastAPI:</b> automatic input validation (Pydantic), async support, and it writes your API documentation for you.</li>
+        <li><b>The three problems, in one breath:</b> LP = best outcome under linear constraints; transportation = cheapest way to ship from factories to stores; TSP = shortest route visiting every city (famously NP-hard — no fast exact answer for big inputs, use heuristics).</li>
+        <li><b>Vogel's Approximation, simply:</b> for transportation, look at each row/column and ask "how much would it hurt to NOT use the cheapest cell here?" (the penalty). Serve the row/column with the biggest hurt-first. Surprisingly good starting solution.</li>
+      </ul>
+      <details data-search="fastapi background tasks workers queue heavy jobs"><summary>Q: A video takes 3 minutes to render — 50 users submit at once. What happens?</summary><div class="a">
+        <div class="plain">If rendering happened inside requests, all workers would be busy for minutes and the whole API would freeze. Correct design: endpoint validates and enqueues the job (Redis/RabbitMQ/Celery style), dedicated workers render and store the result, the client polls or gets notified. The API stays snappy; rendering scales separately.</div>
+      </div></details>
+    </div>
+
+    <div class="card" data-search="silicactus website next.js typescript tailwind app router deployed company">
+      <h3>🌵 Silicactus Website <span class="badge js">Next.js</span><span class="badge js">TypeScript</span><span class="badge web">Tailwind</span> <label class="review"><input type="checkbox" data-rv="sil"> reviewed</label></h3>
+      <a class="repo" href="https://silicactus.com.np">silicactus.com.np (live)</a>
+      <div class="whatis"><b>What it is, plainly:</b> the real, live company website for Silicactus, which I built and deployed. Next.js (React's framework) + TypeScript + Tailwind CSS. This is the "I ship real work" line on your resume.</div>
+      <div class="tag-h">The flow / structure</div>
+      <div class="flow">
+        <b class="step">1.</b> <b>App Router:</b> folders in <code>src/app</code> ARE the URLs — a folder called <code>about</code> becomes <code>/about</code>. A shared <code>layout.tsx</code> wraps every page (header/footer persist).<br>
+        <b class="step">2.</b> <b>Server Components by default:</b> pages are rendered on the server — the browser receives ready HTML, almost no JavaScript shipped. Interactive bits opt in with <code>"use client"</code>.<br>
+        <b class="step">3.</b> <b>Tailwind:</b> styling via small utility classes written right on elements (<code>class="flex gap-4 text-lg"</code>) — no separate CSS files to drift out of sync.<br>
+        <b class="step">4.</b> TypeScript checks the whole codebase; the site is deployed and serving real traffic.
+      </div>
+      <details data-search="server client components decide use client"><summary>Q: Server vs Client Components — how do you choose?</summary><div class="a">
+        <div class="plain">Default: server components — the work happens on the server, so the user's browser downloads less JavaScript and pages load fast (good for SEO too). You switch a piece to "use client" only when it needs browser things: state, clicks, effects, localStorage. Keep those interactive islands small; keep data-fetching up in the server part.</div>
+      </div></details>
+    </div>
+
+    <div class="warn">⚠ <b>Before the interview, decide your story on:</b> (1) <code>dai</code> and <code>StudyBuddy</code> repo links are 404 right now (private/deleted) — make them public or prepare a one-liner ("restructuring the repos — happy to walk through the code live"). (2) <code>pngme</code>'s test suite fails 10/19 — frame it as a learning project if probed. (3) <code>sabinnylol</code> needs <code>cargo update -p time</code> to build on current Rust — a decent dependency-semver war story if it comes up.</div>
+  </section>
+
+  <!-- ================= RESEARCH ================= -->
+  <section id="research">
+    <h2 class="sec">Research & Papers — own these</h2>
+    <p class="sec-desc">First-author work gets asked about. Here's each in plain language with its elevator pitch.</p>
+    <div class="card" data-search="rustmesh mesh p2p transport iot energy constrained first author protocol">
+      <h3>🛰 RustMesh (First Author) <span class="badge py">KU IoT R&D Lab · 2025</span> <label class="review"><input type="checkbox" data-rv="rm"> reviewed</label></h3>
+      <div class="whatis"><b>Plainly:</b> a way for cheap IoT gadgets to form a "mesh" — each device talks to its neighbors and passes messages along, like a bucket brigade, so the network covers a large area without a central router. My framework doesn't care what physical connection (WiFi? Bluetooth? radio?) is underneath — that's "transport-agnostic" — and all communication is encrypted while staying fast and energy-cheap, because these devices run on batteries.</div>
+      <div class="say">"A secure mesh-networking layer, written in Rust, where any IoT node can relay for any other — designed to run on battery-powered hardware regardless of what radio connects them."</div>
+      <ul class="intricacies">
+        <li><b>Why "transport-agnostic" matters:</b> write the networking logic once; it runs over TCP, UDP, BLE, LoRa — whatever the device has. That's abstraction applied to hardware.</li>
+        <li><b>Why energy matters:</b> radios are the biggest battery drain on IoT devices; the protocol avoids wasteful chatter (efficient communication patterns, low latency so radios sleep longer).</li>
+      </ul>
+    </div>
+    <div class="card" data-search="gait analysis wearables motion anomaly classification iot realtime health">
+      <h3>🚶 Real-Time Gait Analysis (IoT R&D Lab · 2025)</h3>
+      <div class="whatis"><b>Plainly:</b> "gait" = how you walk. Cheap wearable sensors capture motion; software processes the signal stream live, classifies the movement, and flags anything abnormal. Why care? Walking patterns can reveal neurological or muscle problems early — without expensive lab equipment.</div>
+      <ul class="intricacies">
+        <li><b>Real-time pipeline:</b> sensors → sample → filter noise → slice into windows → extract features → classify, continuously. Latency and power budgets shape every choice.</li>
+        <li><b>Anomaly detection:</b> learn "normal" for a person, flag deviations — you don't need examples of every pathology.</li>
+      </ul>
+    </div>
+    <div class="card" data-search="biodiversity gamification plant identification computer vision sdg">
+      <h3>🌿 Gamification for Biodiversity (Digital Learning Lab · 2025)</h3>
+      <div class="whatis"><b>Plainly:</b> making plant identification a game — spot a plant, the app (computer vision) recognizes it, you earn points and see it on a map. The engagement loop drives biodiversity awareness, aligned with the UN's Sustainable Development Goals. Same CV pipeline ideas as SEAS, applied to education.</div>
+    </div>
+  </section>
+
+  <!-- ================= RUST ================= -->
+  <section id="rust">
+    <h2 class="sec">Rust — explained like a friend would</h2>
+    <p class="sec-desc">7 of your 10 projects are Rust — expect depth here. Every answer: plain words → the interview phrasing.</p>
+
+    <details data-search="rust ownership move copy explained simple"><summary>What is ownership? Move vs Copy? <label class="review"><input type="checkbox" data-rv="q"></label></summary><div class="a">
+      <div class="plain">Think of every value as a library book that only ONE person can have checked out at a time. If I hand the book to you, <i>I no longer have it</i> — I can't read it, and I definitely can't hand it to someone else. That's a <b>move</b>, and it happens when you assign or pass most values (like a <code>String</code>). When the current holder is done (goes out of scope), the book is automatically returned and destroyed — no manual cleanup, no "double return" possible. Small simple types (numbers, booleans) are <b>Copy</b> — like photocopies: passing them gives a duplicate because copying is free.</div>
+      <div class="say">"Every value has one owner; assignment moves ownership for heap types, making the old binding unusable — the compiler prevents double-free and use-after-free at compile time. Cheap stack types implement Copy and duplicate instead."</div>
+    </div></details>
+
+    <details data-search="rust borrowing references mutable immutable rules explained"><summary>Explain borrowing simply.</summary><div class="a">
+      <div class="plain">Handing someone the actual book every time is exhausting — often you just want to <i>show</i> it to them. That's a reference: <code>&amp;T</code> lets someone read (any number of people can look at the same page at once — safe), <code>&amp;mut T</code> lets exactly one person edit (two writers would corrupt it, so nobody else may even read while the editor works). Rust enforces this at compile time: <b>many readers XOR one writer</b>. That single rule is why Rust programs can't have data races.</div>
+      <div class="say">"References loan access: any number of shared refs or exactly one mutable ref — never both. The borrow checker enforces it at compile time, which is how Rust eliminates data races without a runtime cost."</div>
+    </div></details>
+
+    <details data-search="rust lifetimes explained simply dangling references"><summary>What are lifetimes?</summary><div class="a">
+      <div class="plain">A guarantee that a "shown book" is returned before the library burns down. If a function returns a reference, the compiler must prove the thing it points at still exists when used. Usually it figures this out silently (called elision). Occasionally you must annotate — <code>&amp;'a str</code> — which isn't doing anything at runtime; it's you <i>describing</i> to the compiler which inputs the output borrows from, so it can verify safety. No runtime cost, purely a compile-time proof.</div>
+      <div class="say">"Lifetimes are static descriptions of how long references are valid — the compiler uses them to prove no reference outlives its data. Mostly inferred; explicit annotations just disambiguate which input a returned reference borrows from."</div>
+    </div></details>
+
+    <details data-search="rust option result error handling null unwrap question mark"><summary>Option and Result — why no null, no exceptions?</summary><div class="a">
+      <div class="plain">In most languages, any value might secretly be null and explode when you use it, and any function might throw from anywhere. Rust makes absence and failure into <i>types</i>: <code>Option&lt;T&gt;</code> is a box labeled "maybe empty" (Some/None), <code>Result&lt;T,E&gt;</code> is labeled "might have failed" (Ok/Err). The compiler refuses to let you use the contents without checking the label first — you literally cannot forget to handle failure. The <code>?</code> operator is shorthand for "if this failed, give up and send the error up to my caller."</div>
+      <div class="say">"Option/Result move failure into the type system — the compiler forces every failure path to be handled. ? propagates errors concisely; unwrap is for prototypes and tests only."</div>
+    </div></details>
+
+    <details data-search="rust traits generics dyn monomorphization plugin explained"><summary>Traits vs generics — and what is dyn Trait?</summary><div class="a">
+      <div class="plain">A trait is a <b>job description</b>: "can draw itself," "can generate a URL from args." Anyone who can do those tasks qualifies, whatever they are. Now two ways to hire: <b>generics</b> = you specialize at compile time — the compiler stamps out a fresh copy of the code for each concrete type (fast, zero overhead, but code duplication and one type per call). <b><code>dyn Trait</code></b> = you hire at runtime — one piece of code handles whatever shows up, choosing via a lookup table (vtable); tiny overhead per call, huge flexibility. sabinnylol's URL generators are exactly this: each command implements the generator trait and registers in a list the server iterates — that's trait objects.</div>
+      <div class="say">"Generics monomorphize per type — zero cost, one type per instantiation; dyn Trait is dynamic dispatch through a vtable — one code path, many types. I used the dyn style for sabinnylol's pluggable command registry."</div>
+    </div></details>
+
+    <details data-search="rust box rc arc mutex smart pointers when explained"><summary>Box vs Rc vs Arc vs Mutex — when do you use each?</summary><div class="a">
+      <div class="plain">These are containers with superpowers. <b>Box</b>: put one thing on the heap when it's big or its size isn't known at compile time (like recursive structures). <b>Rc</b> (reference counting): multiple owners share one item — but only within a single thread (the counter isn't thread-safe). <b>Arc</b>: the thread-safe Rc — safe to share across threads. <b>Mutex</b>: a lock — many may hold the key, but only one may open the box at a time; combine as <code>Arc&lt;Mutex&lt;T&gt;&gt;</code> when many threads both share and modify. In DAI, shared peer state across Tokio tasks is exactly Arc+Mutex territory.</div>
+      <div class="say">"Box = heap allocation for one owner; Rc/Arc = shared ownership single/multi-threaded; Mutex/RwLock = synchronized access. Shared mutable state across tasks → Arc&lt;Mutex&lt;T&gt;&gt;."</div>
+    </div></details>
+
+    <details data-search="rust async tokio await future spawn select chef explained"><summary>Async/Tokio — the chef explanation (they WILL ask)</summary><div class="a">
+      <div class="plain">A bad chef puts a pot on the stove and stares at it. A great chef starts chopping vegetables while the pot heats, flips to plating when that's ready — never idle. Async code is the great chef: <code>async fn</code> creates a task that can <b>pause at <code>.await</code></b> whenever it's waiting on something slow (network, disk, timer) and let other tasks run meanwhile. <b>Tokio is the kitchen manager:</b> a handful of real OS threads that juggle thousands of these pausable tasks, waking each one exactly when its data arrives. Why not one OS thread per connection? Threads cost megabytes; a Tokio task costs kilobytes — that's the difference between 100 and 100,000 concurrent connections. <code>spawn</code> starts an independent task; <code>select!</code> does "whichever of these finishes first"; channels pass data between tasks. Note: async helps <i>waiting</i>, not <i>calculating</i> — CPU-heavy work wants real parallelism (rayon/threads).</div>
+      <div class="say">"async fn compiles to a state machine; .await is the yield point where the task pauses instead of blocking its thread. Tokio's work-stealing scheduler runs thousands of cheap tasks on a few threads — that's how DAI sustains many simultaneous peer connections."</div>
+    </div></details>
+
+    <details data-search="rust stack heap memory allocation explained"><summary>Stack vs heap?</summary><div class="a">
+      <div class="plain">The <b>stack</b> is a stack of trays: fixed-size, last-in-first-out, put on and taken off instantly — perfect for local variables whose size is known. The <b>heap</b> is a warehouse: store things of any size, whenever you need, but you must track what's where (that's what Box/String/Vec do for you). Rust's superpower: warehouse freedom with tray discipline — ownership tells the compiler exactly when each warehouse item must be returned, automatically.</div>
+    </div></details>
+
+    <details data-search="rust why memory safety no garbage collection interviews"><summary>"Why Rust?" — the question you will definitely get</summary><div class="a">
+      <div class="plain">Most languages pick a poison: C/C++ are fast but crash and get hacked (you manage memory by hand, you will get it wrong); Java/Python/JS are safe but pay a garbage-collector tax and hide performance. Rust's ownership system <i>proves at compile time</i> that memory is used correctly — no GC needed, no use-after-free possible, no surprise pauses — so you get C-speed with Java-safety. For my work specifically: RustMesh runs on battery IoT hardware (no GC pauses allowed), DAI/sabinnylol are high-throughput servers, and the CLIs ship as single fast binaries.</div>
+      <div class="say">"Memory safety without garbage collection — ownership is checked at compile time instead of runtime, so you get predictable performance and entire bug categories (use-after-free, data races) become compile errors."</div>
+    </div></details>
+
+    <details data-search="rust enum match pattern exhaustive message types"><summary>Why do people love enums + match?</summary><div class="a">
+      <div class="plain">Rust enums are "one of several options, each option carrying its own data" — e.g. DAI's messages: a message is <i>either</i> a Block (with block data) <i>or</i> a Transaction (with tx data) <i>or</i> a Ping. <code>match</code> inspects which one it is and unpacks its data — and it's <b>exhaustive</b>: if I add a new message type tomorrow, the compiler refuses to build until I've handled it everywhere. Whole bug classes disappear.</div>
+    </div></details>
+  </section>
+
+  <!-- ================= JS ================= -->
+  <section id="js">
+    <h2 class="sec">JavaScript — the essentials</h2>
+    <details data-search="javascript var let const hoisting tdz block scope"><summary>var vs let vs const + what is hoisting?</summary><div class="a">
+      <div class="plain"><code>var</code> is the old, sloppy way: its variables belong to the whole <i>function</i> no matter where you write them, and they're "hoisted" — usable before their line, silently equal to undefined (bugs love this). <code>let</code> and <code>const</code> are block-scoped ({ } braces) and exist only from their declaration line onward — touch them earlier and you get a clear error instead of silent undefined (that's the "temporal dead zone"). <code>const</code> additionally forbids reassignment. Rule: const by default, let when you must reassign, never var.</div>
+      <div class="say">"let/const are block-scoped and TDZ-protected; var is function-scoped and hoisted-as-undefined — a bug factory. I never use var."</div>
+    </div></details>
+    <details data-search="javascript closures backpack explained counter react"><summary>What is a closure? (the backpack explanation)</summary><div class="a">
+      <div class="plain">When a function is created, it packs a little <b>backpack</b> with the variables from where it grew up — and keeps that backpack forever, even after that place has "finished." Example: a counter function created inside another function still sees and updates that inner variable on every call — no globals needed. This is also the mental model for React hooks (state survives between renders because your component closes over it) and for callbacks that "remember" context.</div>
+      <div class="say">"A closure is a function plus the variables it captured at creation — they stay alive as long as the function does. That's how you get private state, factory functions, and event callbacks that remember their context."</div>
+    </div></details>
+    <details data-search="javascript event loop microtask macrotask promise settimeout order cashier"><summary>The event loop — and the classic "what prints first?" question</summary><div class="a">
+      <div class="plain">JavaScript is <b>one cashier</b> (a single call stack) — it serves one customer at a time and never waits: slow stuff (timers, network) gets handed to assistants (browser APIs), and their callbacks wait in lines. Two lines: a <b>microtask</b> line (promise callbacks — customers already at the register) and a <b>macrotask</b> line (timers, I/O — the queue outside). The rule that gets asked: after each task, the cashier fully drains the microtask line BEFORE taking anyone from outside. So <code>Promise.then</code> always runs before <code>setTimeout(fn, 0)</code>. Output order of any snippet: sync code first → all microtasks → next macrotask → repeat.</div>
+      <div class="say">"One stack; after every macrotask the engine drains all microtasks first — so promise callbacks always beat setTimeout(0)."</div>
+    </div></details>
+    <details data-search="javascript promises async await error handling allsettled"><summary>Promises and async/await, and how errors work</summary><div class="a">
+      <div class="plain">A Promise is an IOU for a value that isn't ready yet — it settles exactly once: fulfilled (here's the value) or rejected (here's the error). <code>async/await</code> is pleasant syntax over the same thing: await = "pause this function until the IOU resolves." Errors: wrap awaits in try/catch (or chain .catch) — an unhandled rejection will crash modern Node. <code>Promise.all</code> = all-or-nothing (one failure rejects everything); <code>allSettled</code> = wait for all and report each outcome — that's what I'd use to batch downloads and report failures, matching how yuck handles playlists.</div>
+    </div></details>
+    <details data-search="javascript this arrow functions lexical bind call apply"><summary>How does <code>this</code> work?</summary><div class="a">
+      <div class="plain"><code>this</code> in a normal function = "who called me" — <code>obj.fn()</code> means this=obj; a bare call means this is undefined (strict mode). It's decided at call time, which causes the classic lost-this bugs in callbacks. <b>Arrow functions don't have their own this</b> — they inherit it from where they were written (lexical). That's why arrows are the right choice for callbacks inside methods: they still "know" the object.</div>
+    </div></details>
+    <details data-search="javascript equality coercion triple equals"><summary>== vs ===?</summary><div class="a">
+      <div class="plain"><code>==</code> first tries to force both sides into the same type ("1" == 1 becomes true — the string is converted), and the conversion rules are a maze nobody should memorize. <code>===</code> compares type AND value, no converting, no surprises. Always ===. The one tolerated == idiom: <code>x == null</code> catches both null and undefined in one check.</div>
+    </div></details>
+    <details data-search="javascript prototype inheritance chain classes sugar"><summary>Prototypes in 60 seconds?</summary><div class="a">
+      <div class="plain">Every object has a hidden link to a "prototype" object; if you ask for a property it doesn't have, JS follows the link, then that object's link, and so on — the prototype chain. Shared methods live once on the prototype (that's where Array.prototype.map lives) instead of copied into every array. <code>class</code> syntax is friendly clothing over this same mechanism.</div>
+    </div></details>
+    <details data-search="javascript debounce throttle scroll input performance"><summary>Debounce vs throttle?</summary><div class="a">
+      <div class="plain">Both stop a flood of function calls. <b>Debounce</b>: "wait until things calm down" — fire only after N ms of silence (search-as-you-type: query when the user pauses typing). <b>Throttle</b>: "at most once per N ms" — keep working but capped (scroll/resize handlers: react a few times a second, not hundreds).</div>
+    </div></details>
+  </section>
+
+  <!-- ================= PYTHON ================= -->
+  <section id="python">
+    <h2 class="sec">Python — likely questions</h2>
+    <details data-search="python gil global interpreter lock threading multiprocessing asyncio microphone"><summary>What is the GIL? (the microphone explanation) <label class="review"><input type="checkbox" data-rv="q"></label></summary><div class="a">
+      <div class="plain">Python's studio has <b>one microphone</b> (the Global Interpreter Lock): even with many singers (threads), only one can record Python bytecode at a time. So threads help with <i>waiting</i> (network, disk) but NOT with CPU-heavy parallel work. Escapes: <b>multiprocessing</b> (separate interpreters = separate microphones, real parallelism), C extensions that release the lock (NumPy does — that's why it's fast), and <b>asyncio</b> for I/O-bound concurrency. Bonus point to drop: recent CPython versions are shipping optional "free-threaded" builds that remove the GIL (PEP 703).</div>
+      <div class="say">"The GIL allows only one thread to execute Python bytecode at a time — threads work for I/O, not CPU. For CPU parallelism use multiprocessing or libraries that release the GIL; asyncio covers I/O concurrency with less overhead than threads."</div>
+    </div></details>
+    <details data-search="python list tuple dict set hash table internals"><summary>List vs tuple vs dict vs set?</summary><div class="a">
+      <div class="plain"><b>List</b>: ordered, changeable shopping list — add/remove anytime. <b>Tuple</b>: the same but <i>frozen</i> (immutable) — which makes it hashable, so it can be a dict key. <b>Dict</b>: phone book — look up by key instantly (hash table under the hood: the key is mathematically converted to a storage slot, average O(1)); remembers insertion order since Python 3.7. <b>Set</b>: the dict's keys with no values — instant membership checks, no duplicates.</div>
+    </div></details>
+    <details data-search="python mutable default argument gotcha trap"><summary>The famous trap: mutable default arguments</summary><div class="a">
+      <div class="plain">Default values are created <b>once</b>, when the function is defined — not on every call. So <code>def f(x, acc=[])</code> gives ALL calls the <i>same</i> list; stuff accumulates across calls and confusion follows. The fix everyone expects you to know: <code>def f(x, acc=None): if acc is None: acc = []</code>.</div>
+    </div></details>
+    <details data-search="python decorators wrapping bouncer fastapi route"><summary>What are decorators?</summary><div class="a">
+      <div class="plain">A decorator is a <b>bouncer</b> standing in front of your function: same act inside, but everyone passes through the bouncer first — who can check credentials, time the performance, cache results, or log attendance. Mechanically it's just <code>f = wrapper(f)</code> applied at definition time; <code>@functools.wraps</code> keeps the function's name/docs intact. Real usage you have: FastAPI's <code>@app.get("/path")</code> is a decorator registering your handler on a route — that's exactly how my OR visualizer defines endpoints.</div>
+    </div></details>
+    <details data-search="python generators yield lazy pez dispenser memory"><summary>Generators and yield?</summary><div class="a">
+      <div class="plain">A generator is a <b>PEZ dispenser</b>: press the lever (next()), get one candy (yield), the machine remembers its exact position and pauses. Perfect for huge or infinite streams — you process one item at a time instead of loading a mountain of candy. Writing <code>(x*x for x in xs)</code> instead of <code>[...]</code> makes a lazy generator expression.</div>
+    </div></details>
+    <details data-search="python context manager with open cleanup"><summary>Context managers — why <code>with open(...)</code>?</summary><div class="a">
+      <div class="plain"><code>with</code> is a guarantee: whatever setup happened gets <i>undone</i> — file closed, lock released — even if an exception explodes mid-way. The cleanup in <code>__exit__</code> always runs. Without it, an early return or error leaks an open file handle.</div>
+    </div></details>
+    <details data-search="python shallow deep copy nested list"><summary>Shallow vs deep copy?</summary><div class="a">
+      <div class="plain">Plain assignment just adds another name-tag to the same object. <code>copy.copy</code> photocopies the outer box but the inner items are <i>shared</i> — mutate a nested list through one copy, the "other" copy sees it. <code>copy.deepcopy</code> recursively copies everything inside too. Nested-list bugs almost always trace back to this.</div>
+    </div></details>
+    <details data-search="python comprehension args kwargs lambda quick"><summary>Quickfire: comprehension, *args/**kwargs, lambda?</summary><div class="a">
+      <div class="plain">Comprehension = build a collection by describing it: <code>[x*x for x in xs if x &gt; 0]</code>. <code>*args</code> gathers extra positional arguments into a tuple; <code>**kwargs</code> gathers named ones into a dict — that's how flexible APIs absorb options. Lambda = a nameless one-expression function, fine as <code>key=</code> in sorts, never for real logic.</div>
+    </div></details>
+  </section>
+
+  <!-- ================= DB ================= -->
+  <section id="db">
+    <h2 class="sec">Databases & SQL — the fundamentals</h2>
+    <details data-search="sql join inner left right guest lists explained"><summary>Explain JOINs (guest-lists version) <label class="review"><input type="checkbox" data-rv="q"></label></summary><div class="a">
+      <div class="plain">Two guest lists: List A (all users) and List B (people who ordered). <b>INNER JOIN</b> = only people on BOTH lists. <b>LEFT JOIN</b> = everyone on List A, with their order info if they have any, blank otherwise — crucially, users with zero orders are still visible (INNER silently drops them). RIGHT = the mirror; FULL = everyone from both. The classic silent bug is using INNER when you meant LEFT and wondering where your non-ordering users went.</div>
+      <div class="say">"INNER keeps matches only; LEFT keeps all left rows padding with NULLs — users LEFT JOIN orders preserves zero-order users."</div>
+    </div></details>
+    <details data-search="sql index btree book index explained slow writes"><summary>What is an index? (book-index version)</summary><div class="a">
+      <div class="plain">Imagine finding "photosynthesis" in a 900-page book by reading every page — that's a table scan. The index at the back sorts keywords with page numbers — jump straight there. Databases build the same thing (usually a B-tree: a sorted tree structure enabling halving the search space each step — lookups in ~log time). The catch: every time a page is added (INSERT/UPDATE), the index must be updated too — so indexes speed up reads but tax writes and take space. Composite index rule: an index on (a,b) helps queries filtering on a, or a+b — but NOT b alone (like a phone book sorted by last-name-then-first: useless if you only know the first name).</div>
+      <div class="say">"An index is a sorted side-structure (B-tree) turning scans into logarithmic lookups; it costs write throughput and storage, so index the columns you filter, join, and sort by."</div>
+    </div></details>
+    <details data-search="sql normalization 1nf 2nf 3nf address copies explained"><summary>Normalization — 1NF/2NF/3NF in human words</summary><div class="a">
+      <div class="plain">The core idea: <b>store each fact in exactly one place</b>. If a customer's address lives in five tables and they move, four get updated and one doesn't — now the data disagrees with itself. The levels: <b>1NF</b> stop cramming lists into one cell (no "phone1,phone2" comma soup — one value per cell). <b>2NF</b> every column must depend on the WHOLE key, not part of it. <b>3NF</b> columns depend on the key, not on each other (if city determines postal code, store city→postal once, not per row). <b>Denormalization</b> deliberately breaks this for read speed — fewer joins, at the cost of keeping copies in sync. It's a trade-off, not a sin.</div>
+    </div></details>
+    <details data=search "sql acid bank transfer atomicity consistency isolation durability"><summary>What is ACID? (bank-transfer version)</summary><div class="a">
+      <div class="plain">A transaction = several steps that must succeed or fail TOGETHER. <b>Atomicity</b>: all or nothing — debiting A while the credit to B fails would vaporize money, so the debit rolls back too. <b>Consistency</b>: rules (no negative balances) hold before and after. <b>Isolation</b>: two simultaneous transfers can't see each other's half-done work (levels like read committed / repeatable read / serializable trade safety for concurrency). <b>Durability</b>: once the bank says "done," a power cut five seconds later doesn't un-do it (writes are journaled to disk first).</div>
+    </div></details>
+    <details data-search="sql group by having where aggregation average"><summary>WHERE vs HAVING with GROUP BY</summary><div class="a">
+      <div class="plain">GROUP BY collapses rows into buckets (all rows per department become one) and aggregates summarize each bucket (AVG salary per department). WHERE filters individual rows BEFORE bucketing; HAVING filters the finished buckets AFTER — and only HAVING may use the aggregates: <code>SELECT dept, AVG(sal) FROM emp WHERE active=1 GROUP BY dept HAVING AVG(sal) &gt; 50000</code> — active employees only, then show only high-paying departments.</div>
+    </div></details>
+    <details data-search="sql vs nosql mongodb postgres choice trade-off"><summary>SQL vs NoSQL — how do you choose? (you use both — say that!)</summary><div class="a">
+      <div class="plain">Relational (Postgres/MySQL): strict shapes, things that relate to each other, money-accurate transactions, complex queries. It's the safe default. Document (MongoDB — what StuddyBuddy uses): each record is a flexible self-contained blob (a profile with whatever fields it has this month); schema can evolve weekly; easy to shard. My honest rule: start relational; go document when the data is genuinely document-shaped and you're iterating fast. Being able to say "here's the trade-off I made in MY project" is the strong version of this answer.</div>
+    </div></details>
+    <details data-search="n+1 problem orm queries guests drinks explained"><summary>What is the N+1 problem? (party version)</summary><div class="a">
+      <div class="plain">You host a dinner (one query: the guest list), then ask each guest individually what they drink (N more queries). 101 database round-trips instead of one. The fix: fetch in bulk — one JOIN, or one query with <code>WHERE id IN (...)</code>. Symptom: a page listing 50 items that's mysteriously slow, with the same query repeated 50 times in the logs. In StuddyBuddy's feed I batch post retrieval in one query instead of per-user lookups.</div>
+    </div></details>
+    <details data-search="redis cache whiteboard ttl invalidation explained"><summary>Where does Redis fit? (whiteboard version)</summary><div class="a">
+      <div class="plain">Your database is a filing cabinet (thorough but slow-ish); Redis is a <b>whiteboard hung next to it</b> (instant to read, wiped regularly). Typical flow: need data? Check the whiteboard → miss? Open the cabinet, copy the answer to the whiteboard with an expiry note (TTL) → next person reads it instantly. Also used for: session storage, rate-limit counters ("this IP made 41 requests this minute"), and pub/sub messages. Two honest hard parts: choosing expiries and keeping the whiteboard fresh when the cabinet changes (invalidation).</div>
+    </div></details>
+    <details data-search="transaction isolation dirty read phantom nonrepeatable"><summary>Quick: dirty read / non-repeatable read / phantom?</summary><div class="a">
+      <div class="plain"><b>Dirty read</b>: you read an answer the other transaction hasn't committed — they might still cancel it, and you acted on a lie. <b>Non-repeatable read</b>: you read a row twice and it CHANGED between (someone updated it). <b>Phantom</b>: you re-run a filtered list and NEW rows appeared. Higher isolation levels block more of these but allow less concurrency — the eternal trade.</div>
+    </div></details>
+  </section>
+
+  <!-- ================= REACT ================= -->
+  <section id="react">
+    <h2 class="sec">React — concepts that get asked</h2>
+    <details data-search="react props state passed down owned"><summary>Props vs state? <label class="review"><input type="checkbox" data-rv="q"></label></summary><div class="a">
+      <div class="plain"><b>Props</b> are inputs handed DOWN by a parent — like a form the parent filled in; the component reads them but can't change them. <b>State</b> is the component's own private notebook — it can scribble in it, and every scribble re-renders the component. Data flows one direction (down); a child reports back up by calling a function the parent passed as a prop. That one-way flow is React's core design decision — ask "who owns this data?" and everything gets simple.</div>
+    </div></details>
+    <details data-search="react virtual dom reconciliation blueprint keys explained"><summary>Virtual DOM & keys (blueprint version)</summary><div class="a">
+      <div class="plain">Touching the real DOM is slow (repainting a house). So React keeps a cheap <b>blueprint</b> of your page. After a change it draws the new blueprint, DIFFS old vs new, and repaints only the changed walls. <b>Keys</b> are name-tags on list items that let React match old↔new correctly. Use the array <i>index</i> as key and you're in trouble when items reorder: React pairs name-tags by position, so state (like a typed input) sticks to the WRONG row. Stable unique IDs as keys — always.</div>
+      <div class="say">"React diffs the new virtual DOM against the old and applies only the net changes; keys give list items stable identity so state doesn't jump rows when reordering."</div>
+    </div></details>
+    <details data-search="react useeffect dependency array cleanup fetch abort"><summary>useEffect and the dependency array?</summary><div class="a">
+      <div class="plain">Some work can't happen during render — fetching, subscribing, timers (side effects). useEffect runs such work AFTER the screen is painted. The array controls WHEN it re-runs: <code>[]</code> = only on first appearance; <code>[x]</code> = whenever x changes; no array = every render (usually a bug). The returned <b>cleanup function</b> undoes the effect (cancel the fetch, unsubscribe) and runs before the next run and on unmount. Most real useEffect bugs are stale data because a dependency was left out.</div>
+    </div></details>
+    <details data-search="react rerender when memo usememo usecallback profiler"><summary>When does a component re-render, and when do I actually need memo?</summary><div class="a">
+      <div class="plain">Re-render triggers: its own state changed, its parent re-rendered (regardless of whether YOUR props changed!), or context it reads changed. Tools: <code>memo()</code> = "skip re-render if props are shallow-equal," <code>useMemo</code> = cache a computed value, <code>useCallback</code> = keep a function's identity stable. But — and this is the senior answer — measure FIRST with the React DevTools profiler; most components render in microseconds, and memo has its own comparison cost. Optimize the expensive few, not everything.</div>
+    </div></details>
+    <details data-search="react controlled uncontrolled inputs form validation"><summary>Controlled vs uncontrolled inputs?</summary><div class="a">
+      <div class="plain"><b>Controlled</b>: React state holds the input's value — like typing into a form while a clerk re-writes each letter into the ledger. Every keystroke updates state, so validation, formatting, and instant feedback are trivial. <b>Uncontrolled</b>: the browser's DOM holds the value; you peek at it (via ref) only when needed (usually submit) — less code, fine for simple forms. Default to controlled when there's any validation logic.</div>
+    </div></details>
+    <details data-search="react hooks vs class components why reuse"><summary>Why hooks over class components?</summary><div class="a">
+      <div class="plain">Classes scatter one concern across the file: fetching logic lives partly in componentDidMount, partly in componentDidUpdate, partly in componentWillUnmount. Hooks let function components do state and effects, and — the killer feature — related logic can be extracted into <b>custom hooks</b> (useFetch, useAuth) that any component reuses. No <code>this</code> binding puzzles either.</div>
+    </div></details>
+    <details data-search="react context prop drilling small"><summary>Context — what's it good for?</summary><div class="a">
+      <div class="plain">Passing a value through 6 levels of components that don't care about it ("prop drilling") is miserable. Context is a broadcasting channel: provide once high in the tree, consume anywhere beneath (theme, logged-in user, language). Trade-off: every consumer re-renders when the channel's value changes — so keep contexts small and stable, and don't treat it as a full state manager.</div>
+    </div></details>
+    <details data-search="react fetch loading error states race condition abort"><summary>How do you fetch data properly?</summary><div class="a">
+      <div class="plain">Three possible states, render all three explicitly: loading (skeleton/spinner), success (data), error (message + retry button). Race-condition trap: user searches "rust", then "rust lang" — the first response may arrive AFTER the second and overwrite it with stale results. Fix: an AbortController (cancel the previous request in the effect's cleanup). Or use TanStack Query, which handles caching, deduplication, and retries for you.</div>
+    </div></details>
+  </section>
+
+  <!-- ================= BACKEND ================= -->
+  <section id="backend">
+    <h2 class="sec">Backend — what they probe</h2>
+    <details data-search="rest verbs get post put delete idempotent status codes library forms"><summary>REST + idempotency (library-forms version) <label class="review"><input type="checkbox" data-rv="q"></label></summary><div class="a">
+      <div class="plain">REST = URLs name THINGS (nouns: /users/42/orders), HTTP verbs say what to DO: GET (read — safe, changes nothing), POST (create something new), PUT (replace entirely), PATCH (update partially), DELETE. <b>Idempotent</b> = "doing it twice has the same result as once": DELETE twice → the thing is still gone (fine); POST twice → two orders (not fine!). This matters because networks retry — you want retries to be safe. Status codes in bands: 2xx worked (200 OK, 201 Created), 3xx redirect, 4xx client's fault (400 garbage input, 401 who are you vs 403 I know you but no, 404 not found, 422 validation failed, 429 slow down), 5xx server's fault.</div>
+      <div class="say">"Resources as nouns, verbs as HTTP methods; GET/PUT/DELETE are idempotent so retries are safe, POST isn't — that's why payment endpoints need idempotency keys."</div>
+    </div></details>
+    <details data-search="rest vs websocket phone call letters chat realtime"><summary>REST vs WebSockets (letters vs phone call) — you use both in StuddyBuddy</summary><div class="a">
+      <div class="plain">REST is <b>mailing letters</b>: every question is a new letter (request) and a reply (response) — simple, cacheable, scales easily. WebSockets are a <b>phone call</b>: the connection opens once and stays open — either side talks whenever, instantly. Perfect for chat. Costs: the server holds state per connection (scaling needs sticky sessions + a message bus like Redis between servers), plus reconnection and auth-at-upgrade handling. Hence my split in StuddyBuddy: REST for profiles/posts, Socket.IO rooms for chat.</div>
+    </div></details>
+    <details data-search="jwt session wristband coat check oauth valet key"><summary>JWT vs sessions vs OAuth (wristbands, coat checks, and valet keys)</summary><div class="a">
+      <div class="plain"><b>Session</b> = coat check: the counter (server) remembers you; you carry only a ticket (cookie). Revoke anytime; but every request needs a counter lookup. <b>JWT</b> = concert wristband: stamped (cryptographically signed) at entry; every bar verifies the stamp itself — no central lookup, works across services. Weakness: a stolen wristband is valid until expiry → short lifetimes + refresh tokens. Never put secrets IN the JWT: it's base64 (readable by anyone), only the signature prevents tampering. <b>OAuth2</b> solves a different problem — letting an app act on your behalf WITHOUT giving it your password: like a <b>valet key</b> (starts the car, won't open the trunk or glovebox). Yuck uses the authorization-code + PKCE flavor so a CLI can access Spotify without ever seeing your password.</div>
+    </div></details>
+    <details data-search="middleware airport security axum tower express layers"><summary>What is middleware? (airport security)</summary><div class="a">
+      <div class="plain">Every request walks through the same <b>security line</b> before reaching its handler: logging checkpoint → ID check (auth) → "not too many requests" (rate limit) → finally the gate (your handler). Each layer can reject early (401 before the handler burns any cycles) or decorate the request with info ("this is user #42"). In Axum these are composable tower <i>layers</i>; Express apps are literally a chain of middleware. My StuddyBuddy auth is one such layer — JWT verified, user attached, handlers never repeat auth logic.</div>
+    </div></details>
+    <details data-search="rate limiting validation cors security trio env secrets"><summary>Rate limiting, validation, CORS — the security trio</summary><div class="a">
+      <div class="plain"><b>Rate limiting</b>: cap requests per IP/user ("100 per minute") — like a bouncer counting entries; implement with token-bucket counters (often in Redis); reply 429 + Retry-After. <b>Validation</b>: check EVERY input at the door with a schema (Pydantic in FastAPI → clean 422 errors; serde types in Rust) — never trust the client, ever. <b>CORS</b>: browsers refuse to let website A read answers from website B unless B's server explicitly allows it — it protects USERS from malicious sites, and misconfigured "allow everything" + credentials is a classic hole. And the eternal: secrets live in environment variables, never committed — .env belongs in .gitignore (I caught a committed .env in one of my repos once — exactly why I now always check).</div>
+    </div></details>
+    <details data-search="connection pooling phone numbers reuse horizontal scaling"><summary>Connection pooling & horizontal scaling</summary><div class="a">
+      <div class="plain"><b>Pooling</b> = saving people's numbers instead of re-introducing yourself every time: opening a database/socket connection is slow (handshake, auth), so keep a shelf of open connections that requests borrow and return. DAI pools its peer connections exactly this way. <b>Vertical scaling</b> = buy a bigger machine (simple, has a ceiling). <b>Horizontal</b> = add more machines behind a load balancer (a traffic cop splitting arrivals) — but now shared state must move OUT of each machine (into Redis/DB), and WebSockets additionally need sticky sessions + pub/sub between machines.</div>
+    </div></details>
+    <details data-search="api design pagination cursor caching versioning feeds"><summary>Design basics: pagination, caching, versioning</summary><div class="a">
+      <div class="plain"><b>Pagination</b>: offset paging (skip 20, take 10) is simple but breaks on live data (items shift while flipping pages) — cursor paging ("give me 10 older than ID X") is stable; feeds like StuddyBuddy's want cursors. <b>Caching</b>: label GET responses (Cache-Control/ETag) so browsers/CDNs reuse them; cache expensive computations in Redis. <b>Versioning</b>: breaking change? Ship /v2 alongside /v1 so old clients keep working while they migrate.</div>
+    </div></details>
+  </section>
+
+  <!-- ================= FRONTEND ================= -->
+  <section id="frontend">
+    <h2 class="sec">Frontend / Web basics</h2>
+    <details data-search="css box model parcel padding border margin box-sizing"><summary>The box model (parcel version) <label class="review"><input type="checkbox" data-rv="q"></label></summary><div class="a">
+      <div class="plain">Every element is a <b>parcel</b>: the contents, bubble wrap around them (padding), the cardboard box (border), and the gap you keep from the neighboring parcel (margin). The ancient annoyance: by default, CSS width means CONTENTS only — padding adds extra outside your declared width and layouts wobble. <code>box-sizing: border-box</code> makes width include padding+border so declared sizes behave. That's why nearly every project starts with <code>*{box-sizing:border-box}</code>.</div>
+    </div></details>
+    <details data-search="css flexbox grid layout row chessboard"><summary>Flexbox vs Grid (line vs chessboard)</summary><div class="a">
+      <div class="plain"><b>Flexbox</b> lays things out in ONE line — a row or a column — and lets items stretch/shrink within it. Great for navbars, button rows, card rows. <b>Grid</b> defines BOTH rows and columns up front — a chessboard you place items onto. Great for page layouts. The rule of thumb that always sounds good: <i>grid for the page's layout, flex for the components inside it</i>.</div>
+    </div></details>
+    <details data-search="javascript event bubbling delegation classroom principal"><summary>Event bubbling & delegation (classroom version)</summary><div class="a">
+      <div class="plain">Something happens deep in the page (a student talks) and the news travels UP: element → parent → grandparent → document (student → teacher → principal). That's bubbling. <b>Delegation</b> exploits it: instead of assigning a listener to every student, the PRINCIPAL listens once and checks who it came from (e.target). Two wins: one listener instead of a thousand, and it automatically covers students who join later (like new chat messages in StuddyBuddy). Two easily-confused methods: stopPropagation = "this news goes no further up"; preventDefault = "cancel the default action" (stop a form submitting) — different things.</div>
+    </div></details>
+    <details data-search="browser rendering dom cssom layout paint composite defer async"><summary>How does the browser render a page?</summary><div class="a">
+      <div class="plain">Pipeline: HTML → DOM tree; CSS → CSSOM tree; combine → render tree → <b>layout</b> (compute every box's position/size) → <b>paint</b> (fill pixels) → <b>composite</b> (stack layers). JavaScript blocks parsing — that's why <code>&lt;script defer&gt;</code> matters: download in parallel, run after HTML is parsed (regular scripts pause everything; async scripts run whenever they arrive, order not guaranteed). Smooth-animation tip: animate transform/opacity (compositor-friendly) instead of top/left (forces re-layout of everything).</div>
+    </div></details>
+    <details data-search="responsive design media queries rem px mobile first"><summary>Responsive design essentials</summary><div class="a">
+      <div class="plain">Fluid sizes (% and fr units, clamp()) instead of fixed pixels; media queries apply CSS at breakpoints — mobile-first means writing the phone layout first and adding min-width upgrades for bigger screens; prefer rem over px for fonts (scales with the user's chosen size — accessibility); images sized responsively (srcset); and test on real viewports, not just a resized window.</div>
+    </div></details>
+    <details data-search="https tls encryption identity handshake certificate"><summary>Why HTTPS? (plain version)</summary><div class="a">
+      <div class="plain">Three promises: <b>privacy</b> (nobody between you and the site can read the traffic), <b>integrity</b> (nobody can alter it in flight), <b>identity</b> (a certificate chain proves the server really is who it claims — prevents impostors). A brief handshake exchanges keys, then everything is encrypted. Why it matters to YOUR work: JWTs and device keys sent over plain HTTP are as good as shouted across the room — the nodeMCU in MediVault, the JWTs in StuddyBuddy, all assume TLS underneath.</div>
+    </div></details>
+  </section>
+
+  <!-- ================= RAPID ================= -->
+  <section id="rapid">
+    <h2 class="sec">Rapid Fire — one-liners to have loaded</h2>
+    <div class="card">
+      <ul class="intricacies">
+        <li><b>Rust:</b> memory safety without garbage collection — ownership proved at compile time.</li>
+        <li><b>Ownership:</b> every value has one owner; move it and you no longer have it.</li>
+        <li><b>Async:</b> tasks pause at .await instead of blocking threads — a chef who chops while the pot boils.</li>
+        <li><b>JWT:</b> a signed wristband — anyone can verify it, nobody can forge it, stolen ones expire.</li>
+        <li><b>Index:</b> the book's back pages — instant lookup, but every new page must update it.</li>
+        <li><b>Normalization:</b> each fact stored once — copies drift, single sources don't.</li>
+        <li><b>ACID:</b> the bank transfer either happens completely or not at all, forever.</li>
+        <li><b>Event loop:</b> one cashier; promise-takers at the counter get served before the outside queue.</li>
+        <li><b>Virtual DOM:</b> diff the cheap blueprint, repaint only what changed.</li>
+        <li><b>WebSocket:</b> a phone call that stays open, versus REST's repeated letters.</li>
+        <li><b>PDA:</b> a mailbox address derived from rules — the program itself signs, no private key.</li>
+        <li><b>Why blockchain in DAI:</b> a shared notebook everyone verifies — integrity, not currency.</li>
+        <li><b>Strength, said out loud:</b> "I ship across the stack — Rust backends and on-chain programs, React frontends, real deployments like silicactus.com.np — plus first-author systems research (RustMesh)."</li>
+        <li><b>Weakness, honestly:</b> "I optimize for shipping and sometimes under-test — pngme taught me that the hard way; now I write tests alongside features."</li>
+      </ul>
+    </div>
+    <div class="tip">💡 <b>The 4-beat formula for ANY project question:</b> ① context (what & why it exists) → ② your specific role → ③ one technical decision and WHY you made it → ④ one trade-off you'd revisit. That last beat is what separates a junior answer from a mid-level one.</div>
+    <div class="tip">🗓 <b>If time is short before the interview:</b> read the two projects most relevant to the job, the Rust section, JWT-vs-sessions, the event loop, indexes, and the Rapid Fire list. That covers ~80% of likely questions.</div>
+  </section>
+
+  <footer style="color:var(--muted);font-size:12px">Pairs with SabinRanabhatResume_Compact.pdf · refresh to see updates · good luck 🍀</footer>
+</main>
+</div>
+<script>
+(function () {
+  var input = document.getElementById('search');
+  input.addEventListener('input', function () {
+    var q = input.value.trim().toLowerCase();
+    document.querySelectorAll('section .card, section details').forEach(function (el) {
+      var hay = (el.getAttribute('data-search') || '') + ' ' + el.textContent;
+      el.classList.toggle('hidden', !!q && hay.toLowerCase().indexOf(q) === -1);
+    });
+    document.querySelectorAll('section').forEach(function (s) {
+      var vis = s.querySelectorAll('.card:not(.hidden), details:not(.hidden)').length;
+      s.classList.toggle('hidden', !!q && vis === 0 && s.id !== 'rapid');
+    });
+  });
+  document.querySelectorAll('input[data-rv]').forEach(function (b) {
+    var key = 'rv:' + (b.dataset.rv === 'q' ? 'q:' + b.closest('details, .card').querySelector('summary, h3').textContent.trim().slice(0, 40) : b.dataset.rv);
+    b.checked = localStorage.getItem(key) === '1';
+    b.addEventListener('change', function () { localStorage.setItem(key, b.checked ? '1' : '0'); });
+  });
+  var links = document.querySelectorAll('nav a');
+  var secs = [].slice.call(document.querySelectorAll('main section[id]'));
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY + 90, cur = secs[0];
+    secs.forEach(function (s) { if (s.offsetTop <= y) cur = s; });
+    links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + cur.id); });
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
